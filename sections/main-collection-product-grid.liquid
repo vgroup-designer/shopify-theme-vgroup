@@ -145,6 +145,21 @@
                 grid--{{ section.settings.columns_desktop }}-col-desktop
               "
             >
+              {% if product.variants > 0 %}
+               {%- for product in collection.products -%}
+                
+                <li
+                  class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                  {% if settings.animations_reveal_on_scroll %}
+                    data-cascade
+                    style="--animation-order: {{ forloop.index }};"
+                  {% endif %}
+                >
+                  {% assign variants = product.variants %}
+                  {% render "card-product" for variants as variant %}
+                </li>
+              {%- endfor -%}
+                {% else %} 
               {%- for product in collection.products -%}
                 {% assign lazy_load = false %}
                 {%- if forloop.index > 2 -%}
@@ -174,6 +189,7 @@
                
                 </li>
               {%- endfor -%}
+              {% endif %}
             </ul>
 
             {%- if paginate.pages > 1 -%}
