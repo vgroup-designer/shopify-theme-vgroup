@@ -96,7 +96,7 @@
         "custom_liquid_FHgN3q": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "{% assign pro_collection = product.collections.first %}\n{% if pro_collection %}\nProduct asscociation in{{ pro_collection.title | link_to: pro_collection.url }} Collection\n{% endif %}"
+            "custom_liquid": "{% assign pro_collection = product.collections.first %}\n{% if pro_collection %}\nProduct asscociation in {{ pro_collection.title | link_to: pro_collection.url }} Collection\n{% endif %}"
           }
         }
       },
