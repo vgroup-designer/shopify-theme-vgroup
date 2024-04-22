@@ -65,18 +65,6 @@
     >
   {%- endif -%}
 
-{% if product.tags.size > 0 %}
-  <div class="product-single__tags">
-    <p>
-      Tags:
-      {% for tag in product.tags %}
-      {% assign tag_coll = '/collections/all/' | append: tag %}
-        {{ tag | capitalize | link_to: tag_coll }}{% unless forloop.last %},{% endunless %}
-      {% endfor %}
-    </p>
-  </div>
-{% endif %}
-  
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
@@ -121,6 +109,19 @@
                     price_class: 'price--large'
                   -%}
                 </div>
+
+              {% if product.tags.size > 0 %}
+  <div class="product-single__tags">
+    <p>
+      Tags:
+      {% for tag in product.tags %}
+      {% assign tag_coll = '/collections/all/' | append: tag %}
+        {{ tag | capitalize | link_to: tag_coll }}{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    </p>
+  </div>
+{% endif %}
+              
                 {%- if product.quantity_price_breaks_configured? -%}
                   <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
                     <span>{{ 'products.product.volume_pricing.note' | t }}</span>
