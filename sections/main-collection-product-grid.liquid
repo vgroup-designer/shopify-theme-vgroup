@@ -1,7 +1,7 @@
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
-{% if product.metafields.custom.alternate_background %}
+{% if product.metafields.custom.alternate_background.value %}
   {% capture grey-color %}grey{% endcapture %}
 {% endif %}
 {% if section.settings.image_shape == 'blob' %}
