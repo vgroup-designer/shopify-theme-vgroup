@@ -39,7 +39,8 @@
       assign ratio = 1
     endif
   -%}
-  <p id="metaf">{{ product.metafields.custom.alternate_background.value }}</p>
+  {% assign pm = product.metafields.custom.alternate_background.value %}}
+  <p id="metaf">{{pm}}</p>
   <div class="card-wrapper product-card-wrapper underline-links-hover">
     <div
       class="
