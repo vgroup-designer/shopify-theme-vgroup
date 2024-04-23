@@ -45,7 +45,7 @@
       class="
         card card--{{ settings.card_style }}
         {% if card_product.featured_media %} card--media{% else %} card--text{% endif %}
-        {% if settings.card_style == 'card' %}{% if product.metafields.custom.alternate_background.value %}color-scheme-4{% else %} color-{{ settings.card_color_scheme }}{% endif %} gradient{% endif %}
+        {% if settings.card_style == 'card' %}{% if product.metafields.custom.alternate_background.value %} color-scheme-4 {% else %} color-{{ settings.card_color_scheme }}{% endif %} gradient{% endif %}
         {% if image_shape and image_shape != 'default' %} card--shape{% endif %}
         {% if extend_height %} card--extend-height{% endif %}
         {% if card_product.featured_media == nil and settings.card_style == 'card' %} ratio{% endif %}
