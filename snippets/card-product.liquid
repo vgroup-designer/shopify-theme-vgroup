@@ -26,7 +26,8 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'quick-order-list.css' | asset_url | stylesheet_tag }}
 {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
-
+{% assign pm = product.metafields.custom.alternate_background.value %}
+  <p id="metaf">{{pm}}</p>
 {%- if card_product and card_product != empty -%}
   {%- liquid
     assign ratio = 1
@@ -39,14 +40,13 @@
       assign ratio = 1
     endif
   -%}
-  {% assign pm = product.metafields.custom.alternate_background.value %}
-  <p id="metaf">{{pm}}</p>
+  
   <div class="card-wrapper product-card-wrapper underline-links-hover">
     <div
       class="
         card card--{{ settings.card_style }}
         {% if card_product.featured_media %} card--media{% else %} card--text{% endif %}
-        {% if settings.card_style == 'card' %}{% if product.metafields.custom.alternate_background.value %} color-scheme-4 {% else %} color-{{ settings.card_color_scheme }}{% endif %} gradient{% endif %}
+        {% if settings.card_style == 'card' %} color-{{ settings.card_color_scheme }}gradient{% endif %}
         {% if image_shape and image_shape != 'default' %} card--shape{% endif %}
         {% if extend_height %} card--extend-height{% endif %}
         {% if card_product.featured_media == nil and settings.card_style == 'card' %} ratio{% endif %}
