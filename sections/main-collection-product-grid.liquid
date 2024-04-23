@@ -147,7 +147,9 @@
             >
               {% if product.variants > 0 %}
                {%- for product in collection.products -%}
-                
+                {% for variant in product.variants %}
+{{variant | json}}{% unless forloop.last == true %},{%endunless%}
+          {% endfor %}
                 <li
                   class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                   {% if settings.animations_reveal_on_scroll %}
@@ -155,7 +157,7 @@
                     style="--animation-order: {{ forloop.index }};"
                   {% endif %}
                 >
-                  {{product.variants | json}}
+                   
                 </li>
               {%- endfor -%}
                 {% else %} 
