@@ -159,7 +159,12 @@
                     style="--animation-order: {{ forloop.index }};"
                   {% endif %}
                 >
-                  {% render 'product-variant-options'%}
+                  {% render 'product-variant-options',
+                      product: product,
+                      option: option,
+                      block: block
+                      picker_type: picker_type
+                  %}
                 </li>
                   {% else %}
                   <li
