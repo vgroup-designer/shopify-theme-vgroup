@@ -120,9 +120,6 @@
           data-cascade
         {% endif %}
       >
-  
-
-        
         {%- if collection.products.size == 0 -%}
           <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
             <div class="loading-overlay gradient"></div>
@@ -138,22 +135,6 @@
             </div>
           </div>
         {%- else -%}
-              {% assign prod_variant_count = 0 %}
-  
-  {% if product.available and product.variants.size > 1 %}
-    {% for option in product.options %}
-      {% if option contains 'color' %}
-        {% for variant in product.variants %}
-        	{% assign prod_variant_count = prod_variant_count | plus: 1 %}
-        {% endfor %}
-      {% else %}
-      	<small>No Color variants</small>
-      	{% break %}
-      {% endif %}
-    {% endfor %}
-  {% endif %}
-  
-  {% if prod_variant_count > 0 %}<small>Colors available - {{ prod_variant_count }}</small>{% endif %}
           <div class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}">
             <div class="loading-overlay gradient"></div>
             <ul
@@ -168,7 +149,7 @@
                {%- for product in collection.products -%}
                 
                 <li
-                  class="grid__item{% if settings.animations_reveal_on_scroll %} varient scroll-trigger animate--slide-in{% endif %} {% if product.metafields.custom.alternate_background.value %}color-scheme-4{% endif %}"
+                  class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} {% if product.metafields.custom.alternate_background.value %}color-scheme-4{% endif %}"
                   {% if settings.animations_reveal_on_scroll %}
                     data-cascade
                     style="--animation-order: {{ forloop.index }};"
