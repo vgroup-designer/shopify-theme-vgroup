@@ -142,7 +142,7 @@
   
   {% if product.available and product.variants.size > 1 %}
     {% for option in product.options %}
-      {% if option contains 'Color' %}
+      {% if option contains 'color' %}
         {% for variant in product.variants %}
         	{% assign prod_variant_count = prod_variant_count | plus: 1 %}
         {% endfor %}
