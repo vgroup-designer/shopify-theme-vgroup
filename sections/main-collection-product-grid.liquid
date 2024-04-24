@@ -145,9 +145,13 @@
                 grid--{{ section.settings.columns_desktop }}-col-desktop
               "
             >
-              {% if product.variants.size > 0 %}
+              
                {%- for product in collection.products -%}
-                
+                 {% assign lazy_load = false %}
+                {%- if forloop.index > 2 -%}
+                  {%- assign lazy_load = true -%}
+                {%- endif -%}
+                {% if product.variants.size > 0 %}
                 <li
                   class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} {% if product.metafields.custom.alternate_background.value %}color-scheme-4{% endif %}"
                   {% if settings.animations_reveal_on_scroll %}
@@ -167,14 +171,8 @@
                     section_id: section.id
                   %}
                 </li>
-              {%- endfor -%}
-                {% else %} 
-              {%- for product in collection.products -%}
-                {% assign lazy_load = false %}
-                {%- if forloop.index > 2 -%}
-                  {%- assign lazy_load = true -%}
-                {%- endif -%}
-                <li
+                  {% else %}
+                  <li
                   class="grid__item {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} {% if product.metafields.custom.alternate_background.value %}color-scheme-4{% endif %}"
                   {% if settings.animations_reveal_on_scroll %}
                     data-cascade
@@ -197,8 +195,8 @@
                   %}
                
                 </li>
+                  {% endif %}
               {%- endfor -%}
-              {% endif %}
             </ul>
 
             {%- if paginate.pages > 1 -%}
