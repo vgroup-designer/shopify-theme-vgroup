@@ -120,11 +120,11 @@
           data-cascade
         {% endif %}
       >
-        {% if collection.products.size > 0 %}
-          {% for vendor in collection.all_vendors %}
-            <a href="{{ vendor }}">{{ vendor }}</a>
-            {% endfor %}
-        {% endif %}
+        <ul>
+  {%- for product_vendor in shop.vendors -%}
+    <li>{{ product_vendor | link_to_vendor }}</li>
+  {%- endfor -%}
+</ul>
         {%- if collection.products.size == 0 -%}
           <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
             <div class="loading-overlay gradient"></div>
