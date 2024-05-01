@@ -122,7 +122,7 @@
       >
         {% if collection.products.size > 0 %}
           {% for vendor in collection.all_vendors %}
-            {{ vendor }}
+            <a href="{{ vendor }}">{{ vendor }}</a>
             {% endfor %}
         {% endif %}
         {%- if collection.products.size == 0 -%}
