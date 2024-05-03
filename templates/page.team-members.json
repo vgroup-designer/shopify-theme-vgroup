@@ -38,7 +38,7 @@
           "settings": {
             "image": "{{ page.metafields.custom.team_members.value.image.value }}",
             "title": "{{ page.metafields.custom.team_members.value.name.value }}",
-            "text": "{{ page.metafields.custom.team_members.value.description | metafield_tag }}",
+            "text": "<p>{{ page.metafields.custom.team_members.value.description | metafield_tag }}<\/p>",
             "link_label": "",
             "link": ""
           }
@@ -50,7 +50,7 @@
         "column_XUW3jb"
       ],
       "settings": {
-        "title": "Multicolumn",
+        "title": "Team Members",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
