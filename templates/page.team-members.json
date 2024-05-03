@@ -16,7 +16,7 @@
           "settings": {
             "image": "{{ block.repeater.image.value }}",
             "title": "{{ block.repeater.name.value }}",
-            "text": "{{ block.repeater.description | metafield_tag }}",
+            "text": "<p>{{ block.repeater.description | metafield_tag }}<\/p>",
             "link_label": "",
             "link": "{{ block.repeater.system.url }}"
           }
@@ -26,7 +26,7 @@
         "column_MEEnXq"
       ],
       "settings": {
-        "title": "Multicolumn",
+        "title": "Team Members",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
